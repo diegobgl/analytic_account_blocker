@@ -5,8 +5,10 @@
         <field name="model">account.analytic.account</field>
         <field name="inherit_id" ref="analytic.view_account_analytic_account_form"/>
         <field name="arch" type="xml">
-            <group name="group_account_information" position="after">
-                <field name="is_blocked"/>
+            <group name="main" position="after">
+                <group>
+                    <field name="is_blocked"/>
+                </group>
             </group>
         </field>
     </record>

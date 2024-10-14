@@ -12,16 +12,4 @@
             </group>
         </field>
     </record>
-
-    <!-- Modificación de la vista de búsqueda de cuentas analíticas -->
-    <record id="view_analytic_account_search_blocker" model="ir.ui.view">
-        <field name="name">analytic.account.block.search</field>
-        <field name="model">account.analytic.account</field>
-        <field name="inherit_id" ref="analytic.view_account_analytic_account_filter"/>
-        <field name="arch" type="xml">
-            <field name="analytic_account_id" position="attributes">
-                <attribute name="domain">[('is_blocked', '=', False)]</attribute>
-            </field>
-        </field>
-    </record>
 </odoo>

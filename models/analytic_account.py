@@ -7,8 +7,8 @@ class AnalyticAccount(models.Model):
 
     @api.model
     def search(self, args, offset=0, limit=None, order=None, count=False):
-        if count:
-            return super(AnalyticAccount, self).search_count(args)
+        # Añadir el dominio para excluir cuentas bloqueadas
+        args += [('is_blocked', '=', False)]
         return super(AnalyticAccount, self).search(args, offset=offset, limit=limit, order=order)
 
     @api.constrains('is_blocked')

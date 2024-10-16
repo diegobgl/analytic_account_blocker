@@ -5,11 +5,14 @@
         <field name="model">account.analytic.account</field>
         <field name="inherit_id" ref="analytic.view_account_analytic_account_form"/>
         <field name="arch" type="xml">
-            <group name="main" position="after">
-                <group>
+            <xpath expr="//sheet/group" position="inside">
+                <group string="Blocking Information">
                     <field name="is_blocked"/>
+                    <field name="blocked_by_employee"/>
+                    <field name="blocked_date" readonly="1"/>
+                    <field name="blocked_reason"/>
                 </group>
-            </group>
+            </xpath>
         </field>
     </record>
 </odoo>

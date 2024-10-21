@@ -4,10 +4,10 @@ from datetime import datetime
 class AnalyticAccount(models.Model):
     _inherit = 'account.analytic.account'
 
-    is_blocked = fields.Boolean(string="Blocked", default=False, help="If blocked, this analytic account cannot be used.", tracking=True)
-    blocked_by_employee = fields.Many2one('hr.employee', string="Blocked By", help="Employee who requested the blocking", tracking=True)
-    blocked_date = fields.Datetime(string="Blocked Date", readonly=True, help="Date when the analytic account was blocked", tracking=True)
-    blocked_reason = fields.Text(string="Blocking Reason", help="Reason for blocking the analytic account", tracking=True)
+    is_blocked = fields.Boolean(string="Bloqueado", default=False, help="If blocked, this analytic account cannot be used.", tracking=True)
+    blocked_by_employee = fields.Many2one('hr.employee', string="Bloqueado por :", help="Employee who requested the blocking", tracking=True)
+    blocked_date = fields.Datetime(string="Fecha Bloqueo", readonly=True, help="Date when the analytic account was blocked", tracking=True)
+    blocked_reason = fields.Text(string="Descripcion del Bloqueo", help="Reason for blocking the analytic account", tracking=True)
 
     @api.model
     def search(self, args, offset=0, limit=None, order=None, count=False):

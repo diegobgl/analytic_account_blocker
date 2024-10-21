@@ -31,3 +31,13 @@ class AnalyticAccount(models.Model):
             self.blocked_date = False
             self.blocked_reason = False
 
+    def name_search(self, name='', args=None, operator='ilike', limit=100):
+        if args is None:
+            args = []
+        # Añadir el filtro para excluir cuentas bloqueadas
+        args += [('is_blocked', '=', False)]
+        
+        # Asegúrate de que args no contenga None o valores vacíos
+        args = [arg for arg in args if arg and arg[2] is not None]
+        
+        return super(AccountAnalyticAccount, self).name_search(name, args, operator, limit)
